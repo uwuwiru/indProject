@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -53,7 +54,8 @@ public class ModeAdapter extends ArrayAdapter<Mode> {
         b_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TO DO!!!
+                MainActivity.db.delete(position);
+                Toast.makeText(this, "Успешно удалено!", Toast.LENGTH_SHORT).show();
             }
         });
 
