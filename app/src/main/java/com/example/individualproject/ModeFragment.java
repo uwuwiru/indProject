@@ -43,6 +43,7 @@ public class ModeFragment extends Fragment {
 
         super.onCreate(savedInstanceState);
         ModeAdapter adapter = new ModeAdapter(context, makeModes());//контекст?
+        //проверка git
         lv.setAdapter(adapter);
         new_mode_button.setOnClickListener(new View.OnClickListener() {
             @Override
