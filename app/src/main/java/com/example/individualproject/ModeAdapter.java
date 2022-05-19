@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -30,7 +31,7 @@ public class ModeAdapter extends ArrayAdapter<Mode> {
 
         ((TextView) convertView.findViewById(R.id.name_tv)).setText(mode.name);
 
-        Button b_download, b_edit, b_delete;
+        ImageButton b_download, b_edit, b_delete;
         b_download = convertView.findViewById(R.id.download);
         b_edit = convertView.findViewById(R.id.edit);
         b_delete = convertView.findViewById(R.id.delete);

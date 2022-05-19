@@ -33,7 +33,7 @@ public class MyColor {
     }
 
     public static MyColor fromString(String s) {
-        String r = null, g = null, b = null;
+        String r = "", g = "", b = "";
         char[] chars = new char[s.length()];
         for (int i = 0; i < s.length(); i++) {
             chars[i] = s.charAt(i);

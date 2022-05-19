@@ -32,17 +32,9 @@ public class ModeFragment extends Fragment {
         // Inflate the layout for this fragment
         context = container.getContext();
         View view = inflater.inflate(R.layout.fragment_mode, container, false);
-        lv = (ListView) getView().findViewById(R.id.list);
-        new_mode_button = (Button) getView().findViewById(R.id.button);
-
-        return view;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-
-        super.onCreate(savedInstanceState);
-        ModeAdapter adapter = new ModeAdapter(context, makeModes());//контекст?
+        lv = (ListView) view.findViewById(R.id.list);
+        new_mode_button = (Button) view.findViewById(R.id.button);
+        ModeAdapter adapter = new ModeAdapter(getActivity().getApplicationContext(), makeModes());//контекст?
         //проверка git
         lv.setAdapter(adapter);
         new_mode_button.setOnClickListener(new View.OnClickListener() {
@@ -54,14 +46,23 @@ public class ModeFragment extends Fragment {
             }
         });
 
+        return view;
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+
+        super.onCreate(savedInstanceState);
+
+
+
     }
     ArrayList<Mode> makeModes() {
         ArrayList<Mode> modes_to_adapter = new ArrayList<>();
         for (Mode m: MainActivity.modes){
             modes_to_adapter.add(m);
         }
-        ArrayList<Mode> modes_from_db = new ArrayList<>();
-        Collections.copy(modes_from_db, DB.selectAll());
+        ArrayList<Mode> modes_from_db = new ArrayList<>(DB.selectAll());
         for (Mode m: modes_from_db){
             modes_to_adapter.add(m);
         }
