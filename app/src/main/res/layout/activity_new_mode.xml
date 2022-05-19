@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NewModeActivity"
+    android:orientation="vertical">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Название"
+        android:id="@+id/mode_name_et"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:hint="temp1"
+            android:id="@+id/temp1_et"
+            android:inputType="number"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/color1_spin"
+            android:entries="@array/colorsNames"
+            android:spinnerMode="dialog"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:hint="temp1"
+            android:id="@+id/temp2_et"
+            android:inputType="number"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/color2_spin"
+            android:entries="@array/colorsNames"
+            android:spinnerMode="dialog"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <EditText
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:hint="temp1"
+            android:id="@+id/temp3_et"
+            android:inputType="number"/>
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/color3_spin"
+            android:entries="@array/colorsNames"
+            android:spinnerMode="dialog"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Создать"
+        android:onClick="createNewMode"
+        />
+
+</LinearLayout>

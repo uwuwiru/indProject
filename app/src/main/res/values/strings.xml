@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">IndividualProject</string>
+    <string name="about_info">*текст*</string>
+    <string name="about_info_text">Данное приложение осуществляет связь умного устройства и смартфона пользователя через Bluetooth-соединение. С помощью приложения пользователь может подключиться к своему устройству, изменить его название и далее осуществлять его настройку. Далее пользователь может выбрать один из режимов работы устройства или создать свой собственный режим при необходимости. При создании персонального режима пользователь выбирает «красные границы» температуры, цвета, соответствующие им, а также название режима. При дальнейшем использовании приложения все режимы можно редактировать и удалять.</string>
+    <string-array name="colorsNames">
+        <item>Красный</item>
+        <item>Зеленый</item>
+        <item>Синий</item>
+        <item>Фиолетовый</item>
+        <item>Голубой</item>
+        <item>Желтый</item>
+    </string-array>
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
