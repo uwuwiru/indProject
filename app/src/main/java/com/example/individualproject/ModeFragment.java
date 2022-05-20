@@ -20,7 +20,6 @@ public class ModeFragment extends Fragment {
 
     ListView lv;
     Button new_mode_button;
-    static Context context;
 
     public ModeFragment() {
         // Required empty public constructor
@@ -30,11 +29,10 @@ public class ModeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        context = container.getContext();
         View view = inflater.inflate(R.layout.fragment_mode, container, false);
         lv = (ListView) view.findViewById(R.id.list);
         new_mode_button = (Button) view.findViewById(R.id.button);
-        ModeAdapter adapter = new ModeAdapter(getActivity().getApplicationContext(), makeModes());//контекст?
+        ModeAdapter adapter = new ModeAdapter(getActivity().getApplicationContext(), makeModes());
         //проверка git
         lv.setAdapter(adapter);
         new_mode_button.setOnClickListener(new View.OnClickListener() {
@@ -42,7 +40,7 @@ public class ModeFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), NewModeActivity.class);
                 startActivity(i);
-                adapter.notifyDataSetChanged();
+                adapter.notifyDataSetInvalidated();
             }
         });
 
@@ -59,9 +57,9 @@ public class ModeFragment extends Fragment {
     }
     ArrayList<Mode> makeModes() {
         ArrayList<Mode> modes_to_adapter = new ArrayList<>();
-        for (Mode m: MainActivity.modes){
-            modes_to_adapter.add(m);
-        }
+//        for (Mode m: MainActivity.modes){
+//            modes_to_adapter.add(m);
+//        }
         ArrayList<Mode> modes_from_db = new ArrayList<>(DB.selectAll());
         for (Mode m: modes_from_db){
             modes_to_adapter.add(m);

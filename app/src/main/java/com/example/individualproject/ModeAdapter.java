@@ -54,8 +54,8 @@ public class ModeAdapter extends ArrayAdapter<Mode> {
         b_delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                MainActivity.db.delete(position);
-                Toast.makeText(this, "Успешно удалено!", Toast.LENGTH_SHORT).show();
+                MainActivity.db.delete(getPosition(mode));
+                Toast.makeText(parent.getContext(), "Успешно удалено!", Toast.LENGTH_SHORT).show();
             }
         });
 

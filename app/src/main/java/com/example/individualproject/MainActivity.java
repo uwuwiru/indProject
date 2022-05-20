@@ -29,8 +29,10 @@ public class MainActivity extends FragmentActivity {
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.replace(R.id.fragment_container, new AddingFragment());
         transaction.commit();
+
         modes = new ArrayList<>();
         start_colors = new ArrayList<>();
+
         MyColor color_red = new MyColor("Красный", 255, 0, 0);
         start_colors.add(color_red);
         MyColor color_green = new MyColor("Зелёный", 0, 255, 0);

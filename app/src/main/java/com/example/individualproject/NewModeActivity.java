@@ -8,6 +8,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class NewModeActivity extends AppCompatActivity {
 
@@ -81,6 +82,7 @@ public class NewModeActivity extends AppCompatActivity {
         String name = etName.getText().toString();
         Mode m = new Mode(name, color1, color2, color3, temp1, temp2, temp3);
         MainActivity.db.insert(name, MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color1), temp1, temp2, temp3);
+        Toast.makeText(this, "Успешно добавлено", Toast.LENGTH_SHORT).show();
         finish();
     }
 }

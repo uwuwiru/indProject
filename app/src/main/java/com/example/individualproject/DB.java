@@ -106,7 +106,7 @@ public class DB {
         mCursor.moveToFirst();
         if (!mCursor.isAfterLast()) {
             do {
-                long id = mCursor.getLong(NUM_COLUMN_ID);
+                int id = mCursor.getInt(NUM_COLUMN_ID);
                 String name = mCursor.getString(NUM_COLUMN_NAME);
                 String color1_s = mCursor.getString(NUM_COLUMN_COLOR1);
                 String color2_s = mCursor.getString(NUM_COLUMN_COLOR2);
