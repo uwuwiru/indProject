@@ -33,14 +33,14 @@ public class ModeFragment extends Fragment {
         lv = (ListView) view.findViewById(R.id.list);
         new_mode_button = (Button) view.findViewById(R.id.button);
         ModeAdapter adapter = new ModeAdapter(getActivity().getApplicationContext(), makeModes());
-        //проверка git
         lv.setAdapter(adapter);
         new_mode_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), NewModeActivity.class);
                 startActivity(i);
-                adapter.notifyDataSetInvalidated();
+                ModeAdapter adapter = new ModeAdapter(getActivity().getApplicationContext(), makeModes());
+                lv.setAdapter(adapter);
             }
         });
 
@@ -57,13 +57,8 @@ public class ModeFragment extends Fragment {
     }
     ArrayList<Mode> makeModes() {
         ArrayList<Mode> modes_to_adapter = new ArrayList<>();
-//        for (Mode m: MainActivity.modes){
-//            modes_to_adapter.add(m);
-//        }
-        ArrayList<Mode> modes_from_db = new ArrayList<>(DB.selectAll());
-        for (Mode m: modes_from_db){
-            modes_to_adapter.add(m);
-        }
+        modes_to_adapter.addAll(MainActivity.modes);
+        modes_to_adapter.addAll(DB.selectAll());
         return modes_to_adapter;
     }
 

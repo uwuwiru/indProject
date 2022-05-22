@@ -95,8 +95,8 @@ public class DB {
         return db.update(TABLE_NAME, cv, "_id = ?", ids);
     }
 
-    public boolean delete(int id) {
-        return db.delete(TABLE_NAME, COLUMN_ID + "=" + id, null) > 0;
+    public boolean delete(String name) {
+        return (db.delete(TABLE_NAME, COLUMN_NAME + "= \"" + name + "\"", null)>0);
     }
 
     public static ArrayList<Mode> selectAll() {
