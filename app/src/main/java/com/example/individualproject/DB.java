@@ -91,8 +91,8 @@ public class DB {
         cv.put(COLUMN_TEMP1, temp1);
         cv.put(COLUMN_TEMP2, temp2);
         cv.put(COLUMN_TEMP3, temp3);
-        String ids[] = new String[] {Integer.toString(id)};
-        return db.update(TABLE_NAME, cv, "_id = ?", ids);
+        String names[] = new String[] {"\"" + name + "\""};
+        return db.update(TABLE_NAME, cv, COLUMN_NAME +" = ?", names);
     }
 
     public boolean delete(String name) {

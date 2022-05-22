@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:maxLines="3"
             android:ellipsize="end"
-            android:text="@string/about_info"
+            android:text="@string/how_to_add_device"
             android:textSize="10pt"
             android:textStyle="bold"
             android:id="@+id/howToAdd_info_textView"/>
@@ -61,7 +61,7 @@
             android:layout_height="wrap_content"
             android:maxLines="3"
             android:ellipsize="end"
-            android:text="@string/about_info"
+            android:text="@string/how_to_add_mode"
             android:textSize="10pt"
             android:textStyle="bold"
             android:id="@+id/howToMode_info_textView"/>
@@ -81,7 +81,7 @@
             android:layout_height="wrap_content"
             android:maxLines="3"
             android:ellipsize="end"
-            android:text="@string/about_info"
+            android:text="@string/how_to_use"
             android:textSize="10pt"
             android:textStyle="bold"
             android:id="@+id/rules_info_textView"/>
@@ -98,7 +98,7 @@
             android:layout_height="wrap_content"
             android:maxLines="3"
             android:ellipsize="end"
-            android:text="@string/about_info"
+            android:text="@string/my_links"
             android:textSize="10pt"
             android:textStyle="bold"
             android:id="@+id/howToAsk_info_textView"/>
