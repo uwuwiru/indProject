@@ -10,16 +10,19 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class NewModeActivity extends AppCompatActivity {
+public class EditModeActivity extends AppCompatActivity {
 
     Spinner colorSpin1, colorSpin2, colorSpin3;
     EditText etName, etTemp1, etTemp2, etTemp3;
-
+    Mode extra_mode;
+    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new_mode);
+        setContentView(R.layout.activity_edit_mode);
+        extra_mode = (Mode) getIntent().getSerializableExtra("editable_mode");
+        id = (int) getIntent().getSerializableExtra("id");//???
         colorSpin1 = findViewById(R.id.color1_spin);
         colorSpin2 = findViewById(R.id.color2_spin);
         colorSpin3 = findViewById(R.id.color3_spin);
@@ -35,6 +38,7 @@ public class NewModeActivity extends AppCompatActivity {
         colorSpin1.setAdapter(adapter);
         colorSpin2.setAdapter(adapter);
         colorSpin3.setAdapter(adapter);
+
         colorSpin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -68,11 +72,9 @@ public class NewModeActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
-    public void createNewMode(View view) {
+    public void editMode(View view) {
         MyColor color1 = MainActivity.start_colors.get((int) colorSpin1.getSelectedItemId());
         MyColor color2 = MainActivity.start_colors.get((int) colorSpin2.getSelectedItemId());
         MyColor color3 = MainActivity.start_colors.get((int) colorSpin3.getSelectedItemId());
@@ -80,8 +82,8 @@ public class NewModeActivity extends AppCompatActivity {
         int temp2 = Integer.parseInt(String.valueOf(etTemp2.getText()));
         int temp3 = Integer.parseInt(String.valueOf(etTemp3.getText()));
         String name = etName.getText().toString();
-        MainActivity.db.insert(name, MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color1), temp1, temp2, temp3);
-        Toast.makeText(this, "Успешно добавлено", Toast.LENGTH_SHORT).show();
+        MainActivity.db.update(id, name, MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color2), MyColor.myColor_to_dbString(color3), temp1, temp2, temp3);
+        Toast.makeText(this, "Успешно отредактировано!", Toast.LENGTH_SHORT).show();
         finish();
     }
 }

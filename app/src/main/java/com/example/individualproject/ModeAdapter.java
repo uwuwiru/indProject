@@ -1,6 +1,7 @@
 package com.example.individualproject;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,8 +18,11 @@ import java.util.ArrayList;
 
 public class ModeAdapter extends ArrayAdapter<Mode> {
 
+    public Context context;
+
     public ModeAdapter(Context context, ArrayList<Mode> arr) {
         super(context, R.layout.mode_item, arr);
+        this.context = context;
     }
 
     @NonNull
@@ -47,7 +51,13 @@ public class ModeAdapter extends ArrayAdapter<Mode> {
         b_edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TO DO!!!
+                if (position>=3){
+                Intent i = new Intent(context, EditModeActivity.class);//контекст?????
+                i.putExtra("editable_mode", mode);
+                i.putExtra("id", position-3);
+                context.startActivity(i);
+                }
+
             }
         });
 
