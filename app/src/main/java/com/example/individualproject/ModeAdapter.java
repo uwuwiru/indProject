@@ -14,6 +14,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 public class ModeAdapter extends ArrayAdapter<Mode> {
@@ -44,7 +48,21 @@ public class ModeAdapter extends ArrayAdapter<Mode> {
         b_download.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //TO DO!!!
+                if (AddingFragment.selectedDevice!=null && AddingFragment.clientSocket!=null) {
+                    try {
+                        //Получаем выходной поток для передачи данных
+                        OutputStream outStream = AddingFragment.clientSocket.getOutputStream();
+                        byte[] message = mode.toString().getBytes(StandardCharsets.UTF_8);
+                        outStream.write(message);
+                        Toast.makeText(parent.getContext(), "Успешно загружено на устройство", Toast.LENGTH_SHORT).show();
+
+                    } catch (IOException e) {
+                        Toast.makeText(parent.getContext(), "Ошибка", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(parent.getContext(), "Соединитесь с устройством", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 

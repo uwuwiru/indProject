@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14pt"
+            android:textSize="10pt"
             android:textStyle="bold"
             android:textColor="@color/purple_500"
             android:text="Информация об устройстве:"/>
@@ -37,7 +37,7 @@
             android:maxLines="3"
             android:ellipsize="end"
             android:text="@string/about_info_text"
-            android:textSize="10pt"
+            android:textSize="9pt"
             android:textStyle="bold"
             android:id="@+id/about_info_textView"/>
 
@@ -45,7 +45,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14pt"
+            android:textSize="10pt"
             android:textStyle="bold"
             android:textColor="@color/purple_500"
             android:text="Как добавить новое устройство?"/>
@@ -55,7 +55,7 @@
             android:maxLines="3"
             android:ellipsize="end"
             android:text="@string/how_to_add_device"
-            android:textSize="10pt"
+            android:textSize="9pt"
             android:textStyle="bold"
             android:id="@+id/howToAdd_info_textView"/>
 
@@ -63,7 +63,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14pt"
+            android:textSize="10pt"
             android:textStyle="bold"
             android:textColor="@color/purple_500"
             android:text="Как создать свой персональный режим?"/>
@@ -73,7 +73,7 @@
             android:maxLines="3"
             android:ellipsize="end"
             android:text="@string/how_to_add_mode"
-            android:textSize="10pt"
+            android:textSize="9pt"
             android:textStyle="bold"
             android:id="@+id/howToMode_info_textView"/>
 
@@ -83,7 +83,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14pt"
+            android:textSize="10pt"
             android:textStyle="bold"
             android:textColor="@color/purple_500"
             android:text="Правила пользования:"/>
@@ -93,14 +93,14 @@
             android:maxLines="3"
             android:ellipsize="end"
             android:text="@string/how_to_use"
-            android:textSize="10pt"
+            android:textSize="9pt"
             android:textStyle="bold"
             android:id="@+id/rules_info_textView"/>
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="14pt"
+            android:textSize="10pt"
             android:textStyle="bold"
             android:textColor="@color/purple_500"
             android:text="Способы связи с разработчиком:"/>
@@ -110,7 +110,7 @@
             android:maxLines="3"
             android:ellipsize="end"
             android:text="@string/my_links"
-            android:textSize="10pt"
+            android:textSize="9pt"
             android:textStyle="bold"
             android:id="@+id/howToAsk_info_textView"/>
 

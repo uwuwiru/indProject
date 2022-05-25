@@ -3,13 +3,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddingFragment">
+    tools:context=".AddingFragment"
+    android:orientation="vertical">
 
     <!-- TODO: Update blank fragment layout -->
-    <Button
-        android:id="@+id/add_button"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Добавить устройство" />
+        android:textSize="10pt"
+        android:textStyle="bold"
+        android:textColor="@color/purple_500"
+        android:text="Выберите устройство, с которым хотите связаться:"
+        />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/deviceListView"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Подключить"
+            android:id="@+id/connectBtn"
+            />
+
+    </LinearLayout>
 
 </FrameLayout>

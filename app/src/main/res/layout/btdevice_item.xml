@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="4pt" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name_tv"
+        android:textSize="10pt"
+        android:textStyle="bold"
+        android:textColor="@color/purple_500"
+        android:text="Имя устройства" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="3pt" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/address_tv"
+        android:textSize="9pt"
+        android:textColor="#919191"
+        android:text="Адрес устройства" />
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="4pt" />
+
+</LinearLayout>

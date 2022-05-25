@@ -3,12 +3,25 @@ package com.example.individualproject;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
-
 import java.util.ArrayList;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.util.UUID;
+import com.example.individualproject.R;
+import android.app.Activity;
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothSocket;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends FragmentActivity {
 

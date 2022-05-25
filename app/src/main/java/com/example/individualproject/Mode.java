@@ -72,5 +72,12 @@ public class Mode implements Serializable {
     public void setTemp3(int temp3) {
         this.temp3 = temp3;
     }
+
+    @Override
+    public String toString() {
+        return temp1 + "\\n" + color1.r + "\\n" + color1.g + "\\n" + color1.b +
+                "\\n" + temp2 + "\\n" + color2.r + "\\n" + color2.g + "\\n" + color2.b +
+                "\\n" + temp3 + "\\n" + color3.r + "\\n" + color3.g + "\\n" + color3.b;
+    }
 }
 

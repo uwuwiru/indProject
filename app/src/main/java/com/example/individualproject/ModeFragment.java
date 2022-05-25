@@ -1,19 +1,15 @@
 package com.example.individualproject;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ListView;
-
 import java.util.ArrayList;
-import java.util.Collections;
 
 
 public class ModeFragment extends Fragment {
@@ -47,11 +43,7 @@ public class ModeFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
-
-
-
     }
     ArrayList<Mode> makeModes() {
         ArrayList<Mode> modes_to_adapter = new ArrayList<>();
