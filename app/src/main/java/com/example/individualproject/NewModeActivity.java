@@ -80,8 +80,13 @@ public class NewModeActivity extends AppCompatActivity {
         int temp2 = Integer.parseInt(String.valueOf(etTemp2.getText()));
         int temp3 = Integer.parseInt(String.valueOf(etTemp3.getText()));
         String name = etName.getText().toString();
-        MainActivity.db.insert(name, MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color1), temp1, temp2, temp3);
-        Toast.makeText(this, "Успешно добавлено", Toast.LENGTH_SHORT).show();
-        finish();
+        if (temp1<temp2 && temp2<temp3) {
+            MainActivity.db.insert(name, MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color1), temp1, temp2, temp3);
+            Toast.makeText(this, "Успешно добавлено", Toast.LENGTH_SHORT).show();
+            finish();
+        }
+        else {
+            Toast.makeText(this, "Данные введены некорректно", Toast.LENGTH_SHORT).show();
+        }
     }
 }

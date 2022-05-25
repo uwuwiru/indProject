@@ -61,12 +61,6 @@ public class MyColor {
         return color;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    public static Color toLayoutColor(MyColor myColor) {
-        Color c = Color.valueOf(myColor.getR(), myColor.getG(), myColor.getB());
-        return c;
-    }
-
     public static String myColor_to_dbString(MyColor color) {
         int colorR = color.getR();
         int colorG = color.getG();

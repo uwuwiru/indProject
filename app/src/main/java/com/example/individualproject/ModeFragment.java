@@ -39,8 +39,6 @@ public class ModeFragment extends Fragment {
             public void onClick(View view) {
                 Intent i = new Intent(getActivity(), NewModeActivity.class);
                 startActivity(i);
-                ModeAdapter adapter = new ModeAdapter(getActivity().getApplicationContext(), makeModes());
-                lv.setAdapter(adapter);
             }
         });
 
