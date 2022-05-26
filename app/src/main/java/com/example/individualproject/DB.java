@@ -95,8 +95,8 @@ public class DB {
         return db.update(TABLE_NAME, cv, COLUMN_ID +" = ?", ids);
     }
 
-    public boolean delete(String name) {
-        return (db.delete(TABLE_NAME, COLUMN_NAME + "= \"" + name + "\"", null)>0);
+    public boolean delete(int id) {
+        return (db.delete(TABLE_NAME, COLUMN_ID + "= " + id, null)>0);
     }
 
     public static ArrayList<Mode> selectAll() {
@@ -115,7 +115,7 @@ public class DB {
                 int temp1 = mCursor.getInt(NUM_COLUMN_TEMP1);
                 int temp2 = mCursor.getInt(NUM_COLUMN_TEMP2);
                 int temp3 = mCursor.getInt(NUM_COLUMN_TEMP3);
-                arr.add(new Mode(name, MyColor.fromString(color1_s), MyColor.fromString(color2_s), MyColor.fromString(color3_s), temp1, temp2, temp3));
+                arr.add(new Mode(id, name, MyColor.fromString(color1_s), MyColor.fromString(color2_s), MyColor.fromString(color3_s), temp1, temp2, temp3));
             } while (mCursor.moveToNext());
         }
         return arr;

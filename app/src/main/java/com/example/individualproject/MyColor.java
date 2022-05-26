@@ -5,7 +5,9 @@ import android.os.Build;
 
 import androidx.annotation.RequiresApi;
 
-public class MyColor {
+import java.io.Serializable;
+
+public class MyColor implements Serializable {
     String name;
     int r, g, b;
 
@@ -33,31 +35,44 @@ public class MyColor {
     }
 
     public static MyColor fromString(String s) {
-        String r = "", g = "", b = "";
-        char[] chars = new char[s.length()];
-        for (int i = 0; i < s.length(); i++) {
-            chars[i] = s.charAt(i);
+        int r = 0, g = 0, b = 0;
+        if (s.equals("Красный")){
+            r=255;
+            g=0;
+            b=0;
         }
-        int count = 1;
-        for (char c : chars) {
-            if (c == ' ') {
-                count++;
-                continue;
-            }
-            switch (count) {
-                case 1:
-                    r += String.valueOf(c);
-                    break;
-                case 2:
-                    g += String.valueOf(c);
-                    break;
 
-                case 3:
-                    b += String.valueOf(c);
-                    break;
-            }
+        if (s.equals("Зелёный")){
+            r=0;
+            g=255;
+            b=0;
         }
-        MyColor color = new MyColor(s, Integer.parseInt(r), Integer.parseInt(g), Integer.parseInt(b));
+
+        if (s.equals("Синий")){
+            r=0;
+            g=0;
+            b=255;
+        }
+
+        if (s.equals("Фиолетовый")){
+            r=255;
+            g=0;
+            b=255;
+        }
+
+        if (s.equals("Голубой")){
+            r=0;
+            g=255;
+            b=255;
+        }
+
+        if (s.equals("Желтый")){
+            r=255;
+            g=255;
+            b=0;
+        }
+
+        MyColor color = new MyColor(s, r, g, b);
         return color;
     }
 

@@ -70,9 +70,9 @@ public class ModeAdapter extends ArrayAdapter<Mode> {
             @Override
             public void onClick(View view) {
                 if (position>=3){
-                Intent i = new Intent(context, EditModeActivity.class);//контекст?????
+                Intent i = new Intent(context, EditModeActivity.class);
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 i.putExtra("editable_mode", mode);
-                i.putExtra("id", position-3);
                 context.startActivity(i);
                 }
 
@@ -83,7 +83,7 @@ public class ModeAdapter extends ArrayAdapter<Mode> {
             @Override
             public void onClick(View view) {
                 if (position>=3){
-                    MainActivity.db.delete(mode.name);
+                    MainActivity.db.delete(mode.id);
                     Toast.makeText(parent.getContext(), "Успешно удалено!", Toast.LENGTH_SHORT).show();
                 }
 

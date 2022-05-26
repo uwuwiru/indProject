@@ -41,7 +41,7 @@
         <EditText
             android:layout_width="70dp"
             android:layout_height="match_parent"
-            android:hint="temp1"
+            android:hint="temp2"
             android:id="@+id/temp2_et"
             android:inputType="number"/>
 
@@ -61,7 +61,7 @@
         <EditText
             android:layout_width="70dp"
             android:layout_height="match_parent"
-            android:hint="temp1"
+            android:hint="temp3"
             android:id="@+id/temp3_et"
             android:inputType="number"/>
 

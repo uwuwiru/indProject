@@ -10,23 +10,17 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-
 public class EditModeActivity extends AppCompatActivity {
 
     Spinner colorSpin1, colorSpin2, colorSpin3;
     EditText etName, etTemp1, etTemp2, etTemp3;
     Mode extra_mode;
-    int id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_mode);
         extra_mode = (Mode) getIntent().getSerializableExtra("editable_mode");
-        id = (int) getIntent().getSerializableExtra("id");//???
         colorSpin1 = findViewById(R.id.color1_spin);
         colorSpin2 = findViewById(R.id.color2_spin);
         colorSpin3 = findViewById(R.id.color3_spin);
@@ -34,15 +28,23 @@ public class EditModeActivity extends AppCompatActivity {
         etTemp1 = findViewById(R.id.temp1_et);
         etTemp2 = findViewById(R.id.temp2_et);
         etTemp3 = findViewById(R.id.temp3_et);
-        String[] colorsArr = getResources().getStringArray(R.array.colorsNames);//?????
 
         ArrayAdapter<?> adapter =
                 ArrayAdapter.createFromResource(this, R.array.colorsNames,
                         android.R.layout.simple_spinner_item);
+
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         colorSpin1.setAdapter(adapter);
         colorSpin2.setAdapter(adapter);
         colorSpin3.setAdapter(adapter);
+
+        etName.setText(extra_mode.name);
+        etTemp1.setText(extra_mode.temp1 + "");
+        etTemp2.setText(extra_mode.temp2 + "");
+        etTemp3.setText(extra_mode.temp3 + "");
+        colorSpin1.setSelection(MainActivity.start_colors.indexOf(extra_mode.color1));//??
+        colorSpin2.setSelection(MainActivity.start_colors.indexOf(extra_mode.color2));
+        colorSpin3.setSelection(MainActivity.start_colors.indexOf(extra_mode.color3));
 
         colorSpin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -77,16 +79,6 @@ public class EditModeActivity extends AppCompatActivity {
 
             }
         });
-        
-        etName.setText(extra_mode.name);
-        etTemp1.setText(extra_mode.temp1);
-        etTemp2.setText(extra_mode.temp2);
-        etTemp3.setText(extra_mode.temp3);
-        colorSpin1.setSelection(MainActivity.start_colors.indexOf(extra_mode.color1));
-        colorSpin2.setSelection(MainActivity.start_colors.indexOf(extra_mode.color2));
-        colorSpin3.setSelection(MainActivity.start_colors.indexOf(extra_mode.color3));
-
-        
     }
 
     public void editMode(View view) {
@@ -97,8 +89,7 @@ public class EditModeActivity extends AppCompatActivity {
         int temp2 = Integer.parseInt(String.valueOf(etTemp2.getText()));
         int temp3 = Integer.parseInt(String.valueOf(etTemp3.getText()));
         String name = etName.getText().toString();
-        //какой айди у элемента в дб?
-        MainActivity.db.update(id, name, MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color2), MyColor.myColor_to_dbString(color3), temp1, temp2, temp3);
+        MainActivity.db.update(extra_mode.id, name, MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color2), MyColor.myColor_to_dbString(color3), temp1, temp2, temp3);
         Toast.makeText(this, "Успешно отредактировано!", Toast.LENGTH_SHORT).show();
         finish();
     }

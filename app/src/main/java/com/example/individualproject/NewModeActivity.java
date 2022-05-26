@@ -81,7 +81,7 @@ public class NewModeActivity extends AppCompatActivity {
         int temp3 = Integer.parseInt(String.valueOf(etTemp3.getText()));
         String name = etName.getText().toString();
         if (temp1<temp2 && temp2<temp3) {
-            MainActivity.db.insert(name, MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color1), temp1, temp2, temp3);
+            MainActivity.db.insert(name, color1.name, color2.name, color3.name, temp1, temp2, temp3);
             Toast.makeText(this, "Успешно добавлено", Toast.LENGTH_SHORT).show();
             finish();
         }
