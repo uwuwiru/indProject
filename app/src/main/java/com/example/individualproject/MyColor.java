@@ -1,10 +1,5 @@
 package com.example.individualproject;
 
-import android.graphics.Color;
-import android.os.Build;
-
-import androidx.annotation.RequiresApi;
-
 import java.io.Serializable;
 
 public class MyColor implements Serializable {
@@ -18,22 +13,6 @@ public class MyColor implements Serializable {
         this.b = b;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public int getR() {
-        return r;
-    }
-
-    public int getG() {
-        return g;
-    }
-
-    public int getB() {
-        return b;
-    }
-
     public static MyColor fromString(String s) {
         int r = 0, g = 0, b = 0;
         if (s.equals("Красный")){
@@ -41,31 +20,26 @@ public class MyColor implements Serializable {
             g=0;
             b=0;
         }
-
         if (s.equals("Зелёный")){
             r=0;
             g=255;
             b=0;
         }
-
         if (s.equals("Синий")){
             r=0;
             g=0;
             b=255;
         }
-
         if (s.equals("Фиолетовый")){
             r=255;
             g=0;
             b=255;
         }
-
         if (s.equals("Голубой")){
             r=0;
             g=255;
             b=255;
         }
-
         if (s.equals("Желтый")){
             r=255;
             g=255;
@@ -76,12 +50,19 @@ public class MyColor implements Serializable {
         return color;
     }
 
+    public static int getIndex(MyColor color){
+        String colorName = color.name;
+        if (colorName.equals("Красный")) return 0;
+        else if (colorName.equals("Зелёный")) return 1;
+        else if (colorName.equals("Синий")) return 2;
+        else if (colorName.equals("Фиолетовый")) return 3;
+        else if (colorName.equals("Голубой")) return 4;
+        else if (colorName.equals("Желтый")) return 5;
+        else return -1;
+    }
+
     public static String myColor_to_dbString(MyColor color) {
-        int colorR = color.getR();
-        int colorG = color.getG();
-        int colorB = color.getB();
-        String dbString = colorR + " " + colorG + " " + colorB;
-        return dbString;
+        return color.name;
     }
 }
 

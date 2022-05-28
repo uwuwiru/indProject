@@ -19,8 +19,9 @@ public class InfoFragment extends Fragment {
     boolean opened_flag_toMode = false;
     boolean opened_flag_rules = false;
     boolean opened_flag_toAsk = false;
+    boolean opened_flag_toDL = false;
 
-    TextView about_info_tv, how_to_add_tv, how_to_mode_tv, rules_info_tv, how_to_ask_tv;
+    TextView about_info_tv, how_to_add_tv, how_to_mode_tv, rules_info_tv, how_to_ask_tv, how_to_download_tv;
 
     public InfoFragment() {
         // Required empty public constructor
@@ -32,6 +33,7 @@ public class InfoFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_info, container, false);
         about_info_tv = view.findViewById(R.id.about_info_textView);
         how_to_add_tv = view.findViewById(R.id.howToAdd_info_textView);
+        how_to_download_tv = view.findViewById(R.id.howToDownload_info_textView);
         how_to_mode_tv = view.findViewById(R.id.howToMode_info_textView);
         rules_info_tv = view.findViewById(R.id.rules_info_textView);
         how_to_ask_tv = view.findViewById(R.id.howToAsk_info_textView);
@@ -51,6 +53,14 @@ public class InfoFragment extends Fragment {
                 if (!opened_flag_toAdd) how_to_add_tv.setMaxLines(Integer.MAX_VALUE);
                 else how_to_add_tv.setMaxLines(3);
                 opened_flag_toAdd = !opened_flag_toAdd;
+            }
+        });
+        how_to_download_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view1) {
+                if (!opened_flag_toDL) how_to_download_tv.setMaxLines(Integer.MAX_VALUE);
+                else how_to_download_tv.setMaxLines(3);
+                opened_flag_toDL = !opened_flag_toDL;
             }
         });
         how_to_mode_tv.setOnClickListener(new View.OnClickListener() {

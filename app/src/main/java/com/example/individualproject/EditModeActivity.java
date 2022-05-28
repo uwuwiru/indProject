@@ -42,9 +42,9 @@ public class EditModeActivity extends AppCompatActivity {
         etTemp1.setText(extra_mode.temp1 + "");
         etTemp2.setText(extra_mode.temp2 + "");
         etTemp3.setText(extra_mode.temp3 + "");
-        colorSpin1.setSelection(MainActivity.start_colors.indexOf(extra_mode.color1));//??
-        colorSpin2.setSelection(MainActivity.start_colors.indexOf(extra_mode.color2));
-        colorSpin3.setSelection(MainActivity.start_colors.indexOf(extra_mode.color3));
+        colorSpin1.setSelection(MyColor.getIndex(extra_mode.color1));
+        colorSpin2.setSelection(MyColor.getIndex(extra_mode.color2));
+        colorSpin3.setSelection(MyColor.getIndex(extra_mode.color3));
 
         colorSpin1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -82,15 +82,23 @@ public class EditModeActivity extends AppCompatActivity {
     }
 
     public void editMode(View view) {
-        MyColor color1 = MainActivity.start_colors.get((int) colorSpin1.getSelectedItemId());
-        MyColor color2 = MainActivity.start_colors.get((int) colorSpin2.getSelectedItemId());
-        MyColor color3 = MainActivity.start_colors.get((int) colorSpin3.getSelectedItemId());
-        int temp1 = Integer.parseInt(String.valueOf(etTemp1.getText()));
-        int temp2 = Integer.parseInt(String.valueOf(etTemp2.getText()));
-        int temp3 = Integer.parseInt(String.valueOf(etTemp3.getText()));
-        String name = etName.getText().toString();
-        MainActivity.db.update(extra_mode.id, name, MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color2), MyColor.myColor_to_dbString(color3), temp1, temp2, temp3);
-        Toast.makeText(this, "Успешно отредактировано!", Toast.LENGTH_SHORT).show();
-        finish();
+        if (etTemp1.getText().toString().equals("") || etTemp2.getText().toString().equals("") || etTemp3.getText().toString().equals("") || etName.getText().toString().equals(""))
+            Toast.makeText(this, "Данные введены некорректно", Toast.LENGTH_SHORT).show();
+        else {
+            MyColor color1 = MainActivity.start_colors.get(colorSpin1.getSelectedItemPosition());
+            MyColor color2 = MainActivity.start_colors.get(colorSpin2.getSelectedItemPosition());
+            MyColor color3 = MainActivity.start_colors.get(colorSpin3.getSelectedItemPosition());
+            int temp1 = Integer.parseInt(String.valueOf(etTemp1.getText()));
+            int temp2 = Integer.parseInt(String.valueOf(etTemp2.getText()));
+            int temp3 = Integer.parseInt(String.valueOf(etTemp3.getText()));
+            if (temp1 < temp2 && temp2 < temp3) {
+                String name = etName.getText().toString();
+                MainActivity.db.update(extra_mode.id, name, MyColor.myColor_to_dbString(color1), MyColor.myColor_to_dbString(color2), MyColor.myColor_to_dbString(color3), temp1, temp2, temp3);
+                Toast.makeText(this, "Успешно отредактировано!", Toast.LENGTH_SHORT).show();
+                finish();
+            } else {
+                Toast.makeText(this, "Данные введены некорректно", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

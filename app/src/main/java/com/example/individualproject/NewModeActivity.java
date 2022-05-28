@@ -14,6 +14,7 @@ public class NewModeActivity extends AppCompatActivity {
 
     Spinner colorSpin1, colorSpin2, colorSpin3;
     EditText etName, etTemp1, etTemp2, etTemp3;
+    private int temp1;
 
 
     @Override
@@ -73,20 +74,24 @@ public class NewModeActivity extends AppCompatActivity {
     }
 
     public void createNewMode(View view) {
-        MyColor color1 = MainActivity.start_colors.get((int) colorSpin1.getSelectedItemId());
-        MyColor color2 = MainActivity.start_colors.get((int) colorSpin2.getSelectedItemId());
-        MyColor color3 = MainActivity.start_colors.get((int) colorSpin3.getSelectedItemId());
-        int temp1 = Integer.parseInt(String.valueOf(etTemp1.getText()));
-        int temp2 = Integer.parseInt(String.valueOf(etTemp2.getText()));
-        int temp3 = Integer.parseInt(String.valueOf(etTemp3.getText()));
-        String name = etName.getText().toString();
-        if (temp1<temp2 && temp2<temp3) {
-            MainActivity.db.insert(name, color1.name, color2.name, color3.name, temp1, temp2, temp3);
-            Toast.makeText(this, "Успешно добавлено", Toast.LENGTH_SHORT).show();
-            finish();
-        }
+        if (etTemp1.getText().toString().equals("") || etTemp2.getText().toString().equals("") || etTemp3.getText().toString().equals("") || etName.getText().toString().equals("")) Toast.makeText(this, "Данные введены некорректно", Toast.LENGTH_SHORT).show();
         else {
-            Toast.makeText(this, "Данные введены некорректно", Toast.LENGTH_SHORT).show();
+            MyColor color1 = MainActivity.start_colors.get(colorSpin1.getSelectedItemPosition());
+            MyColor color2 = MainActivity.start_colors.get(colorSpin2.getSelectedItemPosition());
+            MyColor color3 = MainActivity.start_colors.get(colorSpin3.getSelectedItemPosition());
+            int temp1 = Integer.parseInt(String.valueOf(etTemp1.getText()));
+            int temp2 = Integer.parseInt(String.valueOf(etTemp2.getText()));
+            int temp3 = Integer.parseInt(String.valueOf(etTemp3.getText()));
+            String name = etName.getText().toString();
+
+        if (temp1 < temp2 && temp2 < temp3) {
+                MainActivity.db.insert(name, color1.name, color2.name, color3.name, temp1, temp2, temp3);
+                Toast.makeText(this, "Успешно добавлено", Toast.LENGTH_SHORT).show();
+                finish();
+            }
+        else {
+                Toast.makeText(this, "Данные введены некорректно", Toast.LENGTH_SHORT).show();
+            }
         }
     }
 }

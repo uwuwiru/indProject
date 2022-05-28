@@ -48,7 +48,7 @@
             android:textSize="10pt"
             android:textStyle="bold"
             android:textColor="@color/purple_500"
-            android:text="Как добавить новое устройство?"/>
+            android:text="Как подключиться к устройству?"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -58,6 +58,23 @@
             android:textSize="9pt"
             android:textStyle="bold"
             android:id="@+id/howToAdd_info_textView"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="10pt"
+                android:textStyle="bold"
+                android:textColor="@color/purple_500"
+                android:text="Как загрузить режим?"/>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLines="3"
+                android:ellipsize="end"
+                android:text="@string/how_to_download_mode"
+                android:textSize="9pt"
+                android:textStyle="bold"
+                android:id="@+id/howToDownload_info_textView"/>
 
 
         <TextView

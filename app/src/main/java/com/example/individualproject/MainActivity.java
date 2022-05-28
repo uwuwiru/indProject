@@ -61,9 +61,9 @@ public class MainActivity extends FragmentActivity {
 
         //настроить старовые режимы
 
-        modes.add(new Mode(-1, "Стандартный", color_blue, color_green, color_red, 10, 20, 30));
-        modes.add(new Mode(-1,"Заварка чая", color_blue, color_green, color_red, 10, 20, 30));
-        modes.add(new Mode(-1,"Детское питание", color_blue, color_green, color_red, 10, 20, 30));
+        modes.add(new Mode(-1, "Стандартный", color_blue, color_green, color_red, 15, 40, 65));
+        modes.add(new Mode(-1,"Заварка зелёного чая", color_blue, color_green, color_red, 70, 78, 86));
+        modes.add(new Mode(-1,"Детское питание", color_blue, color_green, color_red, 35, 36, 37));
     }
 
     public void show_adding_fragment(View view) {

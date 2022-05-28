@@ -52,7 +52,7 @@ public class ModeAdapter extends ArrayAdapter<Mode> {
                     try {
                         //Получаем выходной поток для передачи данных
                         OutputStream outStream = AddingFragment.clientSocket.getOutputStream();
-                        byte[] message = mode.toString().getBytes(StandardCharsets.UTF_8);
+                        byte[] message = mode.toBTString().getBytes(StandardCharsets.UTF_8);
                         outStream.write(message);
                         Toast.makeText(parent.getContext(), "Успешно загружено на устройство", Toast.LENGTH_SHORT).show();
 
@@ -75,6 +75,7 @@ public class ModeAdapter extends ArrayAdapter<Mode> {
                 i.putExtra("editable_mode", mode);
                 context.startActivity(i);
                 }
+                else Toast.makeText(parent.getContext(), "Вы не можете изменить этот режим", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -86,6 +87,7 @@ public class ModeAdapter extends ArrayAdapter<Mode> {
                     MainActivity.db.delete(mode.id);
                     Toast.makeText(parent.getContext(), "Успешно удалено!", Toast.LENGTH_SHORT).show();
                 }
+                else Toast.makeText(parent.getContext(), "Вы не можете удалить этот режим", Toast.LENGTH_SHORT).show();
 
             }
         });
