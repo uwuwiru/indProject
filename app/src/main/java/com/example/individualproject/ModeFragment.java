@@ -24,7 +24,6 @@ public class ModeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_mode, container, false);
         lv = (ListView) view.findViewById(R.id.list);
         new_mode_button = (Button) view.findViewById(R.id.button);
@@ -37,7 +36,6 @@ public class ModeFragment extends Fragment {
                 startActivity(i);
             }
         });
-
         return view;
     }
 
@@ -45,12 +43,11 @@ public class ModeFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
     ArrayList<Mode> makeModes() {
         ArrayList<Mode> modes_to_adapter = new ArrayList<>();
         modes_to_adapter.addAll(MainActivity.modes);
         modes_to_adapter.addAll(DB.selectAll());
         return modes_to_adapter;
     }
-
-
 }

@@ -14,7 +14,6 @@ public class NewModeActivity extends AppCompatActivity {
 
     Spinner colorSpin1, colorSpin2, colorSpin3;
     EditText etName, etTemp1, etTemp2, etTemp3;
-    private int temp1;
 
 
     @Override
@@ -69,8 +68,6 @@ public class NewModeActivity extends AppCompatActivity {
 
             }
         });
-
-
     }
 
     public void createNewMode(View view) {

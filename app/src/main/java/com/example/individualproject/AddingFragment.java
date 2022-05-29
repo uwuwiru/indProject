@@ -3,7 +3,6 @@ package com.example.individualproject;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
 import android.content.Intent;
-import android.content.IntentFilter;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -92,8 +91,6 @@ public class AddingFragment extends Fragment {
 
             }
         });
-
-
         return view;
     }
 
@@ -119,7 +116,5 @@ public class AddingFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
     }
 }
