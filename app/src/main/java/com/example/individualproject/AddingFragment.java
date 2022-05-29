@@ -52,6 +52,7 @@ public class AddingFragment extends Fragment {
 
                     clientSocket = (BluetoothSocket) m.invoke(selectedDevice, 1);
                     clientSocket.connect();
+                    Toast.makeText(getActivity().getApplicationContext(), "Успешно подключено", Toast.LENGTH_LONG).show();п
 
                     //В случае появления любых ошибок, выводим в лог сообщение
                 } catch (IOException e) {
@@ -67,8 +68,6 @@ public class AddingFragment extends Fragment {
                 } catch (InvocationTargetException e) {
                     Toast.makeText(getActivity().getApplicationContext(), "Ошибка", Toast.LENGTH_SHORT).show();
                 }
-
-                Toast.makeText(getActivity().getApplicationContext(), "Успешно подключено", Toast.LENGTH_LONG).show();
             }
         });
 
